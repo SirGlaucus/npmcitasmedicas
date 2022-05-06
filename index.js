@@ -8,19 +8,12 @@ axios
     .then((data) => {
         const datosUsuarios = data.data.results
         let contador = 1;
-        /*datosUsuarios.forEach(e => {
-            console.log(`${contador}. Nombre: ${e.name.first} Apellido: ${e.name.last} - ID: ${uuidv4().slice(0,6)} Timestamp: ${fecha().format('MMMM Do YYYY, h:mm:ss a')}`)
-            console.log('------------------------------------------------------')
-            contador++
-        })*/
-
         _.forEach(datosUsuarios, (e) => {
             console.log(`${contador}. Nombre: ${e.name.first} Apellido: ${e.name.last} - ID: ${uuidv4().slice(0,6)} Timestamp: ${fecha().format('MMMM Do YYYY, h:mm:ss a')}`)
             console.log('------------------------------------------------------')
             contador++
         })
-    })
-    // Paso 4
+    }) 
     .catch((e) => {
         console.log(e)
     })
