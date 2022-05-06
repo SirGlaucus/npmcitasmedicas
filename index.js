@@ -3,6 +3,7 @@ const axios = require("axios")
 const { v4: uuidv4 } = require('uuid')
 const fecha = require('moment')
 const _ = require('lodash')
+const chalk = require('chalk')
 
 http
     .createServer(function (req, res) {
@@ -13,7 +14,7 @@ http
                 const datosUsuarios = data.data.results
                 let contador = 1;
                 _.forEach(datosUsuarios, (e) => {
-                    console.log(`${contador}. Nombre: ${e.name.first} Apellido: ${e.name.last} - ID: ${uuidv4().slice(0, 6)} Timestamp: ${fecha().format('MMMM Do YYYY, h:mm:ss a')}`)
+                    console.log(chalk.blue.bgWhite.bold(`${contador}. Nombre: ${e.name.first} Apellido: ${e.name.last} - ID: ${uuidv4().slice(0, 6)} Timestamp: ${fecha().format('MMMM Do YYYY, h:mm:ss a')}`))
                     res.write(`${contador}. Nombre: ${e.name.first} Apellido: ${e.name.last} - ID: ${uuidv4().slice(0, 6)} Timestamp: ${fecha().format('MMMM Do YYYY, h:mm:ss a')}\n`)
                     console.log('------------------------------------------------------')
                     contador++
